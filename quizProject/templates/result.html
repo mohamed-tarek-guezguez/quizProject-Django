@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="container" >
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+      {{message}}
+    </div>
+    {% endfor %}
+  </div>
+
+  <a href="/"><button type="button" class="btn btn-primary" style="width: 250px; height: 250px;">Try Again</button></a>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+  <br><br><center><h1 class="container shadow p-3 mb-5 bg-white rounded" style="font-weight: bold;">Quiz Web App</h1></center>
+  <div class="container">
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{message}}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-lg-8 border-success p-4 m-4 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <h3>{{count}} Question</h3>
+    {% for Question in Questions%}
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+      <br><h4>{{Question.question}}</h4>
+      <form method="post">
+        {% csrf_token %}
+        <div class="radio">
+          <label><input type="radio" name="op{{Question.nbr}}"  id="option1" value="{{Question.option1}}"> {{Question.option1}} </label>
+        </div>
+        <div class="radio">
+          <label > <input type="radio" name="op{{Question.nbr}}"  id="option2" value="{{Question.option2}}"> {{Question.option2}}</label>
+        </div>
+        {% if Question.option3 %}
+        <div class="radio">
+          <label ><input type="radio" name="op{{Question.nbr}}" id="option3" value="{{Question.option3}}"> {{Question.option3}}</label>
+        </div>
+        {% endif %}
+        {% if Question.option4 %}
+        <div class="radio">
+          <label ><input type="radio" name="op{{Question.nbr}}"  id="option4" value="{{Question.option4}}"> {{Question.option4}} </label>
+        </div>
+        {% endif %}
+      </div>
+      {%endfor%}
+        <div class="form-group">
+          <br><a href="#"><button class="btn form-control btn-primary" >Submit Quiz</button></a>
+        </div>
+      </form>
+    </div>
+
+
+{% endblock %}
