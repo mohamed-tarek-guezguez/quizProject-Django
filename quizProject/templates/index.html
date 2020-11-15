@@ -20,6 +20,30 @@
 
     {% block content %}
 		{% endblock %}
+	  
+<script>
+      function Verify() {
+        var cp;
+        for (cp = 1; cp < {{count}} + 1; cp++) {
+          var str1 = "op" + cp;
+          var radios = document.getElementsByName(str1);
+          var formValid = false;
+          var i = 0;
+          while (!formValid && i < radios.length) {
+              if (radios[i].checked) {
+                formValid = true;
+              }
+              i++;
+          }
+          if (!formValid) {
+            alert("You Must check some option! on question " + cp);
+            break;
+          }
+        }
+        if (formValid)
+          document.getElementById("clicThis").click();
+      }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
