@@ -28,10 +28,14 @@
         {% endif %}
       </div>
     {%endfor%}
-      <div class="form-group">
-        <br><a href="#"><button class="btn form-control btn-primary" ">Submit Quiz</button></a>
+      <div class="form-group" style="display: none;">
+        <br><a href="#"><button class="btn form-control btn-primary" id="clicThis">Submit Quiz</button></a>
       </div>
     </form>
+    <div class="form-group">
+      <button class="btn form-control btn-primary" onclick="Verify()">Submit Quiz</button>
+    </div>
   </div>
+
 
 {% endblock %}
